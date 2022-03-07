@@ -61,11 +61,8 @@ body {
   font-size: 3rem;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
-  /* default flex dirn => horizontal  */
   justify-content: center;
-  /* this will set your children in horizontal center  */
   align-items: center;
-  /* this will set your children in vertical center  */
 }
 
 .delete {
@@ -110,9 +107,7 @@ body {
   width: 35rem;
   position: fixed;
   top: 20vh;
-  /* ye left wala 50% jo hai wo body ki width ka hai  */
   left: 50%;
-  /* ye translate wala jo 50% hai wo khudke element ka hai  */
   transform: translateX(-50%);
 }
 

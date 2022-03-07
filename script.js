@@ -39,7 +39,6 @@ deleteBtn.addEventListener("click", function (e) {
 });
 
 addBtn.addEventListener("click", function () {
-  //delete mode ko band krna h
 
   deleteBtn.classList.remove("delete-selected");
   deleteMode = false;
@@ -48,9 +47,9 @@ addBtn.addEventListener("click", function () {
 
   if (preModal != null) return;
 
-  let div = document.createElement("div"); //<div></div>
+  let div = document.createElement("div"); 
 
-  div.classList.add("modal"); //<div class="modal"></div>
+  div.classList.add("modal"); 
 
   div.innerHTML = ` <div class="task-section">
   <div class="task-inner-container" contenteditable="true"></div>
@@ -86,11 +85,10 @@ addBtn.addEventListener("click", function () {
       let id = uid();
       let task = e.currentTarget.innerText;
 
-      // step1 => jobhi data hai localstorage use lekr aao
+      
 
       let allTickets = JSON.parse(localStorage.getItem("AllTickets"));
 
-      // step2 => usko update kro
 
       let ticketObj = {
         color: ticketColor,
@@ -99,7 +97,6 @@ addBtn.addEventListener("click", function () {
 
       allTickets[id] = ticketObj;
 
-      // step3 => wapis updated object ko localstorage me save krdo
 
       localStorage.setItem("AllTickets", JSON.stringify(allTickets));
 
@@ -132,7 +129,6 @@ addBtn.addEventListener("click", function () {
       });
 
       ticketColorDiv.addEventListener("click", function (e) {
-        // let colors = ["pink", "blue", "green", "black"];
 
         let currTicketId = e.currentTarget.getAttribute("data-id");
 
@@ -148,7 +144,6 @@ addBtn.addEventListener("click", function () {
 
         let newColor = colors[index];
 
-        //1- all tickets lana ; 2- update krna ; 3- wapis save krna
 
         let allTickets = JSON.parse(localStorage.getItem("AllTickets"));
 
@@ -192,19 +187,14 @@ function loadTasks(color) {
     ticketsOnUi[i].remove();
   }
 
-  //1- fetch alltickets data
 
   let allTickets = JSON.parse(localStorage.getItem("AllTickets"));
 
-  //2- create ticket UI for each ticket obj
-  //3- attach required listeners
-  //4- add tickets in the grid section of ui
 
   for (x in allTickets) {
     let currTicketId = x;
-    let singleTicketObj = allTickets[x]; //pink
+    let singleTicketObj = allTickets[x]; 
 
-    //passed color was black
     if (color) {
       if (color != singleTicketObj.color) continue;
     }
@@ -238,11 +228,10 @@ function loadTasks(color) {
     });
 
     ticketColorDiv.addEventListener("click", function (e) {
-      // let colors = ["pink", "blue", "green", "black"];
 
       let currTicketId = e.currentTarget.getAttribute("data-id");
 
-      let currColor = e.currentTarget.classList[1]; //green
+      let currColor = e.currentTarget.classList[1]; 
 
       let index = -1;
       for (let i = 0; i < colors.length; i++) {
@@ -254,7 +243,6 @@ function loadTasks(color) {
 
       let newColor = colors[index];
 
-      //1- all tickets lana ; 2- update krna ; 3- wapis save krna
 
       let allTickets = JSON.parse(localStorage.getItem("AllTickets"));
 
